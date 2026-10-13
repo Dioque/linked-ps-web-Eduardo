@@ -5,118 +5,81 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+	return (
+		<>
+			<header id='cabecalho'>
+				<span id='cabecalho-logo'>Nome/Logo</span>
 
-      <div className="ticks"></div>
+				<div id='cabecalho-links'>
+					<a href="#inicio">Início</a>
+					<a href="#servicos">Serviços</a>
+					<a href="#horario">Horários</a>
+					<a href="#">Feedbacks</a>	
+					<a href="#">Contato</a>
+				</div>
+			</header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+			<main>
+				<section id='inicio'>
+					<div>
+						<span>Consultório de psicologia e psicoterapia.</span>
+						<h1>Lorem Ipsum</h1>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quam rerum quod fugit distinctio facilis optio quibusdam libero ab debitis consequuntur, ipsa itaque error fugiat laboriosam velit eligendi hic animi.</p>
+						<div>
+							<button>
+								AGENDAR
+							</button>
+							<button>
+								SAIBA MAIS
+							</button>
+						</div>
+					</div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+					<div>
+						<img src="" alt="" />
+					</div>
+				</section>
+
+				<section id='servicos'>
+					<div>
+						<h1>Nossos Serviços.</h1>
+						<span>Quantidade que trazem toda diferença para o paciente.</span>
+					</div>
+					<div>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam velit quis repellendus expedita fuga voluptatibus tempora itaque animi dignissimos nisi soluta quod, pariatur saepe veritatis aperiam dolores autem aut iusto.</p>
+					</div>
+				</section>
+
+				<section id='horario'>
+					<div>
+						<h1>Horário de Atendimento.</h1>
+						<span>Estamos disponiveis para agendamento de consultas e visitas.</span>
+					</div>
+					<div>
+						<div>
+							<img src="" alt="" />
+						</div>
+						<div>
+							<div>
+								<span>Segunda - Sexta</span>
+								<span>08:00 - 17:00</span>
+							</div>
+							<div>
+								<span>Sábado</span>
+								<span>10:00 - 14:00</span>
+							</div>
+							<div>
+								<span>Domingo</span>
+								<span>Fechado</span>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</>
+	)
 }
 
 export default App
