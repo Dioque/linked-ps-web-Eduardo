@@ -16,8 +16,8 @@ function App() {
 					<a href="#inicio">Início</a>
 					<a href="#servicos">Serviços</a>
 					<a href="#horario">Horários</a>
-					<a href="#">Feedbacks</a>	
-					<a href="#">Contato</a>
+					<a href="#feedbacks">Feedbacks</a>	
+					<a href="#contato">Contato</a>
 				</div>
 			</header>
 
@@ -75,6 +75,113 @@ function App() {
 								<span>Fechado</span>
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<section id='feedbacks'>
+					<div>
+						<h1>Feedbacks</h1>
+						<span>Quem conhece, confia.</span>
+
+						<ul>
+							<li>
+								<span>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat fugit atque? Accusantium explicabo quasi aliquid consequatur. Corporis molestias quaerat iusto incidunt id assumenda, repellendus recusandae quod, vero fugiat esse."</span>
+								<span>- Cliente 1,2026</span>
+							</li>
+							<li>
+								<span>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat fugit atque? Accusantium explicabo quasi aliquid consequatur. Corporis molestias quaerat iusto incidunt id assumenda, repellendus recusandae quod, vero fugiat esse."</span>
+								<span>- Cliente 2,2026</span>
+							</li>
+							<li>
+								<span>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat fugit atque? Accusantium explicabo quasi aliquid consequatur. Corporis molestias quaerat iusto incidunt id assumenda, repellendus recusandae quod, vero fugiat esse."</span>
+								<span>- Cliente 3,2025</span>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<img src="" alt="" />
+					</div>
+				</section>
+
+				<section id='contato'>
+						<div>
+							<span>Visite-nos</span>
+							<span>ENDEREÇO: Rua, número Bairro</span>
+							<span>CEP: 40028922</span>
+						</div>
+						<div>
+							<img src="" alt="" />
+						</div>
+						<div>
+							<div>
+								<span>Formulário de contato</span>
+								<span>Ficou com alguma dúvida? Converse diretamente conosco!</span>
+							</div>
+							<form action="tet">
+								<div>
+									<label htmlFor="">Nome:</label>
+									<input type="text" />
+								</div>
+								<div>
+									<label htmlFor="">Email:</label>
+									<input type="text" />
+								</div>
+								<div>
+									<label htmlFor="">Obs:</label>
+									<input type="text" />
+								</div>
+							</form>
+							<div>
+								<button>ENVIAR</button>
+							</div>
+						</div>
+				</section>
+
+				<section id='rodape'>
+					<div>
+						<h1>EMPRESA:</h1>
+						<ul>
+							<li>
+								<img src="" alt="" />
+								<span>Facebook</span>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<span>Instagram</span>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<span>LinkedIn</span>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h1>ACESSO RÁPIDO:</h1>
+						<ul>
+							<li href="#inicio">Início</li>
+							<li href="#servicos">Nossos Serviços</li>
+							<li href="#horario">Horários</li>
+							<li href="#feedbacks">Feedbacks</li>
+							<li href="#contato">Contato</li>
+						</ul>
+					</div>
+					<div>
+						<h1>SERVIÇOS:</h1>
+						<ul>
+							<li>Serviço 1</li>
+							<li>Serviço 2</li>
+							<li>Serviço 3</li>
+						</ul>
+					</div>
+					<div>
+						<h1>CONTATO:</h1>
+						<ul>
+							<li>Rua, numero</li>
+							<li>Bairro</li>
+							<li>+55 (01)234567890</li>
+							<li>email@email.com</li>
+						</ul>
 					</div>
 				</section>
 			</main>
