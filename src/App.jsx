@@ -1,7 +1,11 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+import inicioImg from './assets/inicio_img.png'
+import relogio from './assets/relogio.png'
+import feedbacks from './assets/feedbacks.png'
+import mapa from './assets/mapa.png'
 import './App.css'
 
 function App() {
@@ -38,7 +42,7 @@ function App() {
 					</div>
 
 					<div>
-						<img src="" alt="" />
+						<img src={inicioImg} alt="" />
 					</div>
 				</section>
 
@@ -48,18 +52,18 @@ function App() {
 						<span>Quantidade que trazem toda diferença para o paciente.</span>
 					</div>
 					<div>
-						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam velit quis repellendus expedita fuga voluptatibus tempora itaque animi dignissimos nisi soluta quod, pariatur saepe veritatis aperiam dolores autem aut iusto.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
 				</section>
 
-				<section id='horario'>
+				<section id='horario' >
 					<div>
 						<h1>Horário de Atendimento.</h1>
 						<span>Estamos disponiveis para agendamento de consultas e visitas.</span>
 					</div>
 					<div>
 						<div>
-							<img src="" alt="" />
+							<img src={relogio} alt="" />
 						</div>
 						<div>
 							<div>
@@ -76,6 +80,7 @@ function App() {
 							</div>
 						</div>
 					</div>
+					
 				</section>
 
 				<section id='feedbacks'>
@@ -100,7 +105,7 @@ function App() {
 					</div>
 
 					<div>
-						<img src="" alt="" />
+						<img src={feedbacks} alt="" />
 					</div>
 				</section>
 
@@ -111,7 +116,7 @@ function App() {
 							<span>CEP: 40028922</span>
 						</div>
 						<div>
-							<img src="" alt="" />
+							<img src={mapa} alt="" />
 						</div>
 						<div>
 							<div>
@@ -159,11 +164,11 @@ function App() {
 					<div>
 						<h1>ACESSO RÁPIDO:</h1>
 						<ul>
-							<li href="#inicio">Início</li>
-							<li href="#servicos">Nossos Serviços</li>
-							<li href="#horario">Horários</li>
-							<li href="#feedbacks">Feedbacks</li>
-							<li href="#contato">Contato</li>
+							<li><a href="#inicio">Início</a></li>
+							<li ><a href="#servicos">Nossos Serviços</a></li>
+							<li><a href="#horario">Horários</a></li>
+							<li><a href="#feedbacks">Feedbacks</a></li>
+							<li><a href="#contato">Contato</a></li>
 						</ul>
 					</div>
 					<div>

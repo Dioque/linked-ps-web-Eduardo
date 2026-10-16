@@ -1,184 +1,756 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Cores exatas da Foto 1)
+   ========================================================================== */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+:root {
+  --cor-principal: #063B3E;     /* Verde-petróleo escuro exato da primeira foto */
+  --cor-secundaria: #8FC0A9;    /* Cor de destaque secundária */
+  --cor-fundo-claro: #F4F7F6;   /* Cor de fundo para intercalar nas outras seções */
+  --cor-fundo-branco: #FFFFFF;  /* Branco puro (essencial para camuflar a onda da foto) */
+  --cor-rodape: #063B3E;        /* Rodapé combinando com o verde-petróleo */
+  --cor-texto-escuro: #111111;  /* Quase preto para os títulos e textos */
+  --cor-texto-claro: #FFFFFF;   /* Cinza escuro para textos secundários */
+  
+  /* Fontes: Com serifa para os textos (igual à foto 1) e sem serifa para botões/menu */
+  --fonte-serifada: 'Georgia', 'Times New Roman', serif;
+  --fonte-limpa: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.hero {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-limpa);
+  color: var(--cor-texto-escuro);
+  background-color: var(--cor-fundo-branco);
+  line-height: 1.6;
+}
+
+/* Regra geral de imagens: sem fundo cinza para não manchar imagens PNG */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background-color: transparent;
+}
+
+/* Espaçamento padrão para as demais seções do site */
+section {
+  padding: 80px 8%;
+}
+
+
+/* ==========================================================================
+   2. CABEÇALHO (#cabecalho)
+   ========================================================================== */
+
+#cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6%;
+  background-color: var(--cor-fundo-branco);
+  border-bottom: 1px solid #063B3E33; /* Linha fina discreta separando o topo */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.5s ease-in-out;
+}
+
+#cabecalho.escondido {
+  transform: translateY(-100%);
+}
+
+#cabecalho-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+}
+
+#cabecalho-links a {
+  text-decoration: none;
+  color: var(--cor-texto-escuro);
+  margin-left: 30px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+#cabecalho-links a:hover {
+  color: var(--cor-principal);
+}
+
+
+/* ==========================================================================
+   3. SEÇÃO INÍCIO (#inicio) - Idêntica à Foto 1
+   ========================================================================== */
+
+#inicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--cor-fundo-branco); /* Fundo branco puro para sumir com os blocos brancos da onda */
+  padding: 0 0 0 5%;            /* Tira o espaço de cima, da direita e de baixo para a foto encostar nas bordas */
+  overflow: hidden;             /* Corta as pontas da onda que passam para fora da foto em cima e embaixo */
+  border-bottom: 14px solid var(--cor-principal); /* Faixa verde-petróleo na base da seção */
+}
+
+/* Coluna da esquerda (Textos e botões) */
+#inicio > div:first-child {
+  flex: 1;
+  padding: 40px 20px 60px 0;
+  z-index: 2;                   /* Garante que o texto fique sempre na frente da borda da imagem */
+}
+
+
+
+/* Frase do topo: "Consultório de psicologia e psicoterapia." */
+#inicio span {
+  display: block;
+  font-family: var(--fonte-serifada);
+  color: var(--cor-texto-escuro);
+  font-size: 1.35rem;
+  font-weight: 400;
+  text-transform: none;         /* Mantém letras normais (sem forçar tudo maiúsculo) */
+  margin-bottom: 90px;          /* Dá aquele espaço grande entre a frase do topo e o "Lorem Ipsum." */
+}
+
+/* Título principal: "Lorem Ipsum" */
+#inicio h1 {
+  font-family: var(--fonte-serifada);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+/* Parágrafo de texto */
+#inicio p {
+  font-family: var(--fonte-serifada);
+  color: var(--cor-texto-escuro);
+  font-size: 1.2rem;
+  line-height: 1.45;
+  max-width: 520px;             /* Faz o texto quebrar em 3 linhas exatamente como na foto 1 */
+  margin-bottom: 45px;
+}
+
+/* 1. Div da Esquerda (Textos): vai até os 38% da página */
+#inicio > div:first-child {
+  flex: 0 0 38%;                /* Trava o bloco de texto em 38% da largura (mude entre 35% e 40% se quiser ajustar) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Mantém os textos alinhados no meio da altura */
+  padding: 40px 20px 60px 0;
+  z-index: 2;
+}
+
+/* Estilo dos botões em formato de pílula */
+#inicio button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;                    /* Espaço entre a bolinha e o texto do botão */
+  padding: 10px 24px;
+  border-radius: 50px;          /* Deixa os botões totalmente arredondados nas pontas */
+  font-family: var(--fonte-limpa);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Desenha o pequeno círculo (bolinha) dentro dos botões automaticamente */
+#inicio button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Primeiro botão (AGENDAR) */
+#inicio button:first-child {
+  background-color: var(--cor-principal);
+  color: var(--cor-fundo-branco);
+  border: 1.5px solid var(--cor-principal);
+}
+
+/* Segundo botão (SAIBA MAIS) */
+#inicio button:last-child {
+  background-color: transparent;
+  color: var(--cor-principal);
+  border: 1.5px solid var(--cor-principal);
+}
+
+#inicio button:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* Coluna da direita (Imagem com a onda) */
+#inicio > div:last-child {
+  flex: 1.25;                   /* Dá a proporção exata de largura para a foto na direita */
+  display: flex;
+  justify-content: flex-end;    /* Cola a imagem totalmente na direita */
+  align-items: center;
+}
+
+#inicio img {
+  width: 100%;
+  max-width: none;
+  border-radius: 0;             /* Cantos retos para colar nas bordas da tela */
+  margin-top: -13%;             /* Puxa a imagem para cima para esconder a sobra transparente do PNG */
+  margin-bottom: -37%;          /* Puxa a imagem para baixo para esconder a sobra transparente inferior */
+}
+#inicio > div:last-child {
+  flex: 1;
+  display: flex;
+  overflow: hidden;             /* Mantém a moldura cortando o excesso */
+}
+#inicio img {
+  width: 115%;                  /* Um pouco maior apenas para cobrir a margem que vamos puxar */
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  margin-left: -12%;            /* Puxa levemente para a esquerda para esconder a faixa branca inicial */
+  object-position: 25% center;  /* Move o foco do corte para o lugar certo, mantendo a pessoa visível */
+  border-radius: 0;
+}
+
+
+/* ==========================================================================
+   4. SEÇÃO SERVIÇOS (#servicos)
+   ========================================================================== */
+
+#servicos {
+  background-color: #004346;
+  
+  /* Adicionamos apenas estas linhas para ocupar 100% da tela e centralizar o conteúdo */
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 90px 8%;
+}
+
+#servicos h1 {
+  font-family: var(--fonte-serifada);
+  font-size: 2.2rem;
+  color: var(--cor-texto-claro);
+  margin-bottom: 8px;
+}
+
+#servicos span {
+  display: block;
+  color: var(--cor-texto-claro);
+  margin-bottom: 35px;
+}
+
+#servicos p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--cor-texto-claro);
+}
+
+
+/* ==========================================================================
+   5. SEÇÃO HORÁRIO (#horario)
+   ========================================================================== */
+/* ==========================================================================
+   SEÇÃO HORÁRIO (#horario) - Idêntica à referência
+   ========================================================================== */
+
+#horario {
+  position: relative; /* Necessário para posicionar as imagens dentro da seção */
+  background-color: rgba(39, 38, 38, 0.164); /* Cor de fundo geral da seção */
+  text-align: center;
+  padding: 80px 8%;
+  overflow: hidden; /* Esconde o que passar para fora das bordas */
+}
+
+/* 1. Imagem de fundo da ESQUERDA (embaixo) */
+#horario::before {
+  content: "";
+  position: absolute;
+  left: -150px;
+  bottom: -130px;
+  width: 650px;
+  height: 650px;
+  background-image: url('./assets/horario_fundo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* O MESMO FILTRO DO RELÓGIO: Deixa a imagem escura por igual e limpa, sem sobreposições! */
+  filter: brightness(0.3); 
+  
+  z-index: 0; /* Fica atrás de todo o conteúdo */
+  pointer-events: none; /* O mouse passa direto por cima dela */
+}
+
+/* 2. Imagem de fundo da DIREITA (em cima) */
+#horario::after {
+  content: "";
+  position: absolute;
+  right: -150px;
+  top: -130px;
+  width: 650px;
+  height: 650px;
+  background-image: url('./assets/horario_fundo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* Filtro igualzinho ao do relógio */
+  filter: brightness(0.3); 
+  
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Garante que o conteúdo de texto e os cartões fiquem na frente das imagens de fundo */
+#horario > div {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  z-index: 1;
 }
 
-#center {
+/* Título e Subtítulo */
+#horario > div:first-child {
+  margin-bottom: 50px;
+}
+
+#horario h1 {
+  font-family: var(--fonte-serifada);
+  font-size: 2.2rem;
+  color: var(--cor-principal);
+  margin-bottom: 8px;
+}
+
+#horario > div:first-child span {
+  color: var(--cor-texto-claro); 
+  font-size: 1.05rem;
+}
+
+/* O Grande Cartão Branco Centralizado */
+#horario > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 70px 40px;
+  border-radius: 12px;  
+  background-color: rgba(255, 255, 255, 0.9); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+  border: 1px solid #111111;
+}
+
+/* Lado esquerdo: Caixa do ícone do relógio */
+#horario > div:last-child > div:first-child {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#horario img {
+  width: 120px;   
+  height: 120px;
+  object-fit: contain;
+  filter: brightness(0.3); /* Seu relógio com o brilho ajustado */
+}
+
+/* Lado direito: A caixinha verde escura com os horários */
+#horario > div:last-child > div:last-child {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: var(--cor-principal); 
+  padding: 30px 25px;
+  border-radius: 10px;
+  color: var(--cor-fundo-branco);        
+}
+
+/* Cada linha de horário dentro da caixa verde */
+#horario > div:last-child > div:last-child > div {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* Tira a bordinha da última linha */
+#horario > div:last-child > div:last-child > div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+/* ==========================================================================
+   6. SEÇÃO FEEDBACKS (#feedbacks)
+   ========================================================================== */
+/* ==========================================================================
+   SEÇÃO FEEDBACKS (#feedbacks) - Idêntico à referência
+   ========================================================================== */
+
+#feedbacks {
+  background-color: var(--cor-principal); /* Fundo verde escuro igual à imagem */
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 8%;
+  color: #FFFFFF; /* Texto padrão branco */
+}
+
+#feedbacks > div {
+  flex: 1;
+}
+
+#feedbacks > div:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+#feedbacks img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#feedbacks h1 {
+  font-family: var(--fonte-serifada);
+  font-size: 2.2rem;
+  color: #FFFFFF; /* Título em branco */
+  margin-bottom: 8px;
+}
+
+#feedbacks > div:first-child > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.8); /* Subtítulo cinza claro/branco translúcido */
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* Linha decorativa embaixo do subtítulo (igual na referência) */
+#feedbacks > div:first-child > span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 120px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#feedbacks ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  padding: 0;
 }
 
-#next-steps {
+/* Cada item de feedback solto no fundo verde, sem caixas cinzas */
+#feedbacks li {
+  background-color: transparent;
+  padding: 0 0 20px 0;
+  border-radius: 0;
+  border-left: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Linha divisória sutil entre os depoimentos */
+}
+
+#feedbacks li:last-child {
+  border-bottom: none; /* Tira a linha do último item */
+  padding-bottom: 0;
+}
+
+#feedbacks li span:first-child {
+  display: block;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9); /* Texto do depoimento em branco suave */
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+#feedbacks li span:last-child {
+  font-weight: 500;
+  color: #FFFFFF; /* Nome do cliente em destaque branco */
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. SEÇÃO CONTATO (#contato)
+   ========================================================================== */
+
+#contato {
+  position: relative; /* Necessário para fixar as imagens de fundo na seção */
+  background-color: var(--cor-fundo-claro);
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
+  flex-direction: column; /* Organiza os blocos em pilha se necessário */
+  gap: 40px;
+  overflow: hidden;       /* Esconde o que passar para fora das bordas da seção */
+  padding: 80px 8%;
+}
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
+/* 1. Imagem de fundo da ESQUERDA (em cima) */
+#contato::before {
+  content: "";
+  position: absolute;
+  left: -150px;
+  top: -130px;
+  width: 650px;
+  height: 650px;
+  background-image: url('./assets/horario_fundo.png'); /* Usa a mesma imagem de fundo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0.3); /* Mesmo filtro escuro do relógio */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 2. Imagem de fundo da DIREITA (em baixo) */
+#contato::after {
+  content: "";
+  position: absolute;
+  right: -150px;
+  bottom: -130px;
+  width: 650px;
+  height: 650px;
+  background-image: url('./assets/horario_fundo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0.3); /* Mesmo filtro escuro */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Garante que os elementos internos do contato fiquem na frente das imagens de fundo */
+#contato > * {
+  position: relative;
+  z-index: 1;
+}
+
+#contato > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#contato > div:first-child span:first-child,
+#contato > div:last-child > div:first-child span:first-child {
+  font-family: var(--fonte-serifada);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+  display: block;
+}
+
+#contato span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cor-texto-claro);
+}
+
+#contato img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+#contato form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contato form div {
+  display: flex;
+  flex-direction: column;
+}
+
+#contato label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+#contato input {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#contato input:focus {
+  border-color: var(--cor-principal);
+}
+
+#contato button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--cor-principal);
+  color: var(--cor-fundo-branco);
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#contato button:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   8. RODAPÉ (#rodape)
+   ========================================================================== */
+
+#rodape {
+  background-color: var(--cor-rodape);
+  color: var(--cor-fundo-branco);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 8%;
+}
+
+#rodape > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+#rodape h1 {
+  font-size: 1.1rem;
+  color: var(--cor-secundaria);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+#rodape ul {
+  list-style: none;
+}
+
+#rodape li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #dddddd;
+}
+
+#rodape img {
+  width: 24px;
+  height: 24px;
+}
+
+#rodape a {
+  color: #dddddd;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#rodape a:hover {
+  color: var(--cor-fundo-branco);
+  padding-left: 5px;
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVIDADE (Telas de Celular e Tablet)
+   ========================================================================== */
+
+@media (max-width: 850px) {
+  
+  section {
+    padding: 50px 5%;
   }
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
+  #cabecalho {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 5%;
   }
 
-  @media (max-width: 1024px) {
+  #cabecalho-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #cabecalho-links a {
+    margin-left: 0;
+  }
+
+  #inicio {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5% 0 5%;
+  }
+
+  #inicio > div:first-child {
+    padding: 0 0 30px 0;
+  }
+
+  #inicio span {
+    margin-bottom: 30px;
+  }
+
+  #inicio h1 {
+    font-size: 2.3rem;
+  }
+
+  #inicio p {
+    margin: 0 auto 30px auto;
+  }
+
+  #inicio > div:first-child > div {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Ajusta a imagem no celular para não cortar demais */
+  #inicio img {
+    margin-top: -10%;
+    margin-bottom: -15%;
+  }
+
+  #horario > div:last-child,
+  #feedbacks,
+  #contato {
     flex-direction: column;
     text-align: center;
   }
-}
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
+  #feedbacks li,
+  #contato form {
+    text-align: left;
   }
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
+  #rodape {
+    flex-direction: column;
+    text-align: center;
   }
 
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
+  #rodape li {
     justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
   }
 }
