@@ -93,17 +93,23 @@ section {
   align-items: center;
   justify-content: space-between;
   background-color: var(--cor-fundo-branco); /* Fundo branco puro para sumir com os blocos brancos da onda */
-  padding: 0 0 0 5%;            /* Tira o espaço de cima, da direita e de baixo para a foto encostar nas bordas */
+  padding: 0 0 0 7%;            /* Tira o espaço de cima, da direita e de baixo para a foto encostar nas bordas */
   overflow: hidden;             /* Corta as pontas da onda que passam para fora da foto em cima e embaixo */
-  border-bottom: 14px solid var(--cor-principal); /* Faixa verde-petróleo na base da seção */
+  min-height: 10vh;
 }
 
 /* Coluna da esquerda (Textos e botões) */
 #inicio > div:first-child {
-  flex: 1;
-  padding: 40px 20px 60px 0;
-  z-index: 2;                   /* Garante que o texto fique sempre na frente da borda da imagem */
+  flex: 0 0 40%; /* Ocupa 40% da largura na esquerda */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 45px 20px 60px 0;
+  box-sizing: border-box;
+  z-index: 2;
 }
+
+
 
 
 
@@ -112,17 +118,17 @@ section {
   display: block;
   font-family: var(--fonte-serifada);
   color: var(--cor-texto-escuro);
-  font-size: 1.35rem;
+  font-size: 2.05rem;
   font-weight: 400;
   text-transform: none;         /* Mantém letras normais (sem forçar tudo maiúsculo) */
-  margin-bottom: 90px;          /* Dá aquele espaço grande entre a frase do topo e o "Lorem Ipsum." */
+  margin-bottom: 1%;          /* Dá aquele espaço grande entre a frase do topo e o "Lorem Ipsum." */
 }
 
 /* Título principal: "Lorem Ipsum" */
 #inicio h1 {
   font-family: var(--fonte-serifada);
   font-size: 3.2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #000000;
   margin-bottom: 20px;
   line-height: 1.15;
@@ -156,7 +162,7 @@ section {
   padding: 10px 24px;
   border-radius: 50px;          /* Deixa os botões totalmente arredondados nas pontas */
   font-family: var(--fonte-limpa);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: 0.5px;
   cursor: pointer;
@@ -179,6 +185,27 @@ section {
   color: var(--cor-fundo-branco);
   border: 1.5px solid var(--cor-principal);
 }
+
+#inicio button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-family: var(--fonte-limpa);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+#inicio button:first-of-type {
+  margin-right: 30px;
+}
+
 
 /* Segundo botão (SAIBA MAIS) */
 #inicio button:last-child {
@@ -206,6 +233,7 @@ section {
   border-radius: 0;             /* Cantos retos para colar nas bordas da tela */
   margin-top: -13%;             /* Puxa a imagem para cima para esconder a sobra transparente do PNG */
   margin-bottom: -37%;          /* Puxa a imagem para baixo para esconder a sobra transparente inferior */
+
 }
 #inicio > div:last-child {
   flex: 1;
@@ -229,38 +257,53 @@ section {
 
 #servicos {
   background-color: #004346;
-  
-  /* Adicionamos apenas estas linhas para ocupar 100% da tela e centralizar o conteúdo */
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   padding: 90px 8%;
 }
 
 #servicos h1 {
   font-family: var(--fonte-serifada);
-  font-size: 2.2rem;
-  color: var(--cor-texto-claro);
-  margin-bottom: 8px;
+  font-size: 5.2rem;
+  color: #FFFFFF; /* Título em branco puro */
+  margin-bottom: -30px;
 }
 
 #servicos span {
+  font-family: var(--fonte-serifada);
+  font-size: 1.8rem;
   display: block;
-  color: var(--cor-texto-claro);
-  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.8); /* Subtítulo em tom claro e suave */
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 28px;
+}
+
+/* Linha divisoria abaixo do subtítulo (igual na imagem) */
+#servicos span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 190px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #servicos p {
-  max-width: 600px;
+  font-family: var(--fonte-serifada); /* Garante a mesma fonte serifada no texto */
+  font-size: 1.8rem;
+  max-width: 700px;
   margin: 0 auto;
-  color: var(--cor-texto-claro);
+  color: #FFFFFF;                    /* Texto do parágrafo em branco */
+  line-height: 1.6;
 }
-
 
 /* ==========================================================================
    5. SEÇÃO HORÁRIO (#horario)
@@ -271,48 +314,52 @@ section {
 
 #horario {
   position: relative; /* Necessário para posicionar as imagens dentro da seção */
-  background-color: rgba(39, 38, 38, 0.164); /* Cor de fundo geral da seção */
+  background-color: rgba(136, 131, 165, 0.164); /* Cor de fundo geral da seção */
   text-align: center;
   padding: 80px 8%;
   overflow: hidden; /* Esconde o que passar para fora das bordas */
+  
+  /* Centraliza tudo exatamente no meio dos 100% da altura da tela */
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 1. Imagem de fundo da ESQUERDA (embaixo) */
 #horario::before {
   content: "";
   position: absolute;
-  left: -150px;
-  bottom: -130px;
-  width: 650px;
-  height: 650px;
+  left: -250px;
+  bottom: -230px;
+  width: 900px;
+  height: 900px;
   background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  
-  /* O MESMO FILTRO DO RELÓGIO: Deixa a imagem escura por igual e limpa, sem sobreposições! */
-  filter: brightness(0.3); 
-  
-  z-index: 0; /* Fica atrás de todo o conteúdo */
-  pointer-events: none; /* O mouse passa direto por cima dela */
+  filter: brightness(0.6); 
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35; /* Deixa a imagem mais fraca e fosca (vai de 0.1 a 1.0) */
 }
 
 /* 2. Imagem de fundo da DIREITA (em cima) */
 #horario::after {
   content: "";
   position: absolute;
-  right: -150px;
-  top: -130px;
-  width: 650px;
-  height: 650px;
+  right: -250px;
+  top: -230px;
+  width: 900px;
+  height: 900px;
   background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  
-  /* Filtro igualzinho ao do relógio */
-  filter: brightness(0.3); 
-  
+  filter: brightness(0.6); 
   z-index: 0;
   pointer-events: none;
+  opacity: 0.35; /* Deixa a imagem mais fraca e fosca (vai de 0.1 a 1.0) */
 }
 
 /* Garante que o conteúdo de texto e os cartões fiquem na frente das imagens de fundo */
@@ -321,36 +368,56 @@ section {
   z-index: 1;
 }
 
-/* Título e Subtítulo */
+/* Título e Subtítulo maiores + linha divisória */
 #horario > div:first-child {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 #horario h1 {
   font-family: var(--fonte-serifada);
-  font-size: 2.2rem;
+  font-size: 7.2rem; /* Título maior igual à foto */
+  font-weight: 500;
   color: var(--cor-principal);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 #horario > div:first-child span {
-  color: var(--cor-texto-claro); 
-  font-size: 1.05rem;
+  display: block;
+  font-family: var(--fonte-serifada);
+  color: var(--cor-principal); 
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 30px;
 }
 
-/* O Grande Cartão Branco Centralizado */
+/* Linha fina embaixo do subtítulo */
+#horario > div:first-child span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 140px;
+  height: 1px;
+  background-color: var(--cor-principal);
+  opacity: 0.6;
+}
+
+/* O Grande Cartão Centralizado (Maior e ocupando bem o meio) */
 #horario > div:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-  max-width: 850px;
+  gap: 60px;
+  width: 100%;       /* Garante que o cartão se expanda dentro do Flexbox */
+  max-width: 950px;  /* Largura maior para dar mais presença no centro */
   margin: 0 auto;
-  padding: 70px 40px;
+  padding: 80px 60px; /* Mais altura e espaço interno */
   border-radius: 12px;  
-  background-color: rgba(255, 255, 255, 0.9); 
+  background-color: rgba(255, 255, 255, 0.25); /* Levemente transparente para mostrar o desenho atrás */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
   border: 1px solid #111111;
+  box-sizing: border-box;
 }
 
 /* Lado esquerdo: Caixa do ícone do relógio */
@@ -362,10 +429,10 @@ section {
 }
 
 #horario img {
-  width: 120px;   
-  height: 120px;
+  width: 180px;   /* Relógio maior para acompanhar o novo tamanho do cartão */
+  height: 180px;
   object-fit: contain;
-  filter: brightness(0.3); /* Seu relógio com o brilho ajustado */
+  filter: brightness(0.3);
 }
 
 /* Lado direito: A caixinha verde escura com os horários */
@@ -373,10 +440,10 @@ section {
   flex: 1.4;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
   background-color: var(--cor-principal); 
-  padding: 30px 25px;
-  border-radius: 10px;
+  padding: 40px 35px; /* Caixa verde mais espaçosa */
+  border-radius: 12px;
   color: var(--cor-fundo-branco);        
 }
 
@@ -384,10 +451,10 @@ section {
 #horario > div:last-child > div:last-child > div {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-  font-weight: 500;
-  font-size: 1.05rem;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35); 
+  font-family: var(--fonte-serifada); /* Fonte serifada igual à foto */
+  font-size: 1.25rem;                 /* Letras e números maiores */
 }
 
 /* Tira a bordinha da última linha */
@@ -402,119 +469,149 @@ section {
    SEÇÃO FEEDBACKS (#feedbacks) - Idêntico à referência
    ========================================================================== */
 
+/* ==========================================================================
+   SEÇÃO FEEDBACKS (#feedbacks) - Fiel ao layout do Figma
+   ========================================================================== */
+
 #feedbacks {
   background-color: var(--cor-principal); /* Fundo verde escuro igual à imagem */
+  min-height: 100vh;
+  box-sizing: border-box; /* Garante que o padding não passe de 100% da tela */
   display: flex;
   align-items: center;
-  gap: 60px;
-  padding: 80px 8%;
-  color: #FFFFFF; /* Texto padrão branco */
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 10%;
+  color: #FFFFFF;
+  font-family: var(--fonte-serifada); /* Aplica a fonte serifada em toda a seção */
 }
 
-#feedbacks > div {
-  flex: 1;
+#feedbacks > div:first-child {
+  flex: 1.1;
+  max-width: 580px;
 }
 
 #feedbacks > div:last-child {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
+/* Imagem com proporção vertical (retrato) idêntica à referência */
 #feedbacks img {
   width: 100%;
-  max-width: 450px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 480px;
+  height: 560px;
+  object-fit: cover; /* Garante que a foto preencha o espaço sem achatar */
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* Título "Feedbacks." bem grande e destacado */
 #feedbacks h1 {
   font-family: var(--fonte-serifada);
-  font-size: 2.2rem;
-  color: #FFFFFF; /* Título em branco */
-  margin-bottom: 8px;
+  font-size: 6.6rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  line-height: 1.1;
 }
 
+/* Subtítulo "Quem conhece, confia." */
 #feedbacks > div:first-child > span {
   display: block;
-  color: rgba(255, 255, 255, 0.8); /* Subtítulo cinza claro/branco translúcido */
-  margin-bottom: 30px;
+  font-family: var(--fonte-serifada);
+  font-size: 1.55rem;
+  color: #FFFFFF;
+  margin-bottom: 45px;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 16px;
 }
 
-/* Linha decorativa embaixo do subtítulo (igual na referência) */
+/* Linha fina embaixo do subtítulo */
 #feedbacks > div:first-child > span::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 120px;
+  width: 145px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.45);
 }
 
+/* Lista com as bolinhas (•) ativadas e alinhadas */
 #feedbacks ul {
-  list-style: none;
+  list-style-type: disc; /* Ativa a bolinha lateral igual na foto */
+  padding-left: 20px;    /* Alinha a bolinha perfeitamente à esquerda do texto */
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  padding: 0;
+  gap: 35px;             /* Espaço entre cada depoimento */
+  margin: 0;
 }
 
-/* Cada item de feedback solto no fundo verde, sem caixas cinzas */
+/* Cada item de feedback limpo, sem bordas ou caixas */
 #feedbacks li {
   background-color: transparent;
-  padding: 0 0 20px 0;
-  border-radius: 0;
-  border-left: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Linha divisória sutil entre os depoimentos */
+  padding: 0 0 0 8px; /* Pequeno espaço entre a bolinha e o início da frase */
+  border: none;
+  color: #FFFFFF;     /* Cor da bolinha */
 }
 
-#feedbacks li:last-child {
-  border-bottom: none; /* Tira a linha do último item */
-  padding-bottom: 0;
-}
-
+/* Texto do depoimento entre aspas */
 #feedbacks li span:first-child {
   display: block;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.9); /* Texto do depoimento em branco suave */
-  margin-bottom: 8px;
-  line-height: 1.5;
+  font-family: var(--fonte-serifada);
+  font-style: normal; /* Sem itálico, igual ao print */
+  font-size: 1.37rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 18px; /* Espaço entre o texto e o "- Cliente X" */
+  line-height: 1.45;
 }
 
+/* Nome do cliente ("- Cliente 1, 2026") */
 #feedbacks li span:last-child {
-  font-weight: 500;
-  color: #FFFFFF; /* Nome do cliente em destaque branco */
-  font-size: 0.95rem;
+  display: block;
+  font-family: var(--fonte-serifada);
+  font-weight: 400; /* Peso normal e suave */
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
 }
 
 /* ==========================================================================
    7. SEÇÃO CONTATO (#contato)
    ========================================================================== */
 
+/* ==========================================================================
+   SEÇÃO CONTATO (#contato) - Fundo verde corrigido no "Visite-nos" e Inputs
+   ========================================================================== */
+
 #contato {
-  position: relative; /* Necessário para fixar as imagens de fundo na seção */
+  position: relative;
   background-color: var(--cor-fundo-claro);
+  min-height: 100vh;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column; /* Organiza os blocos em pilha se necessário */
-  gap: 40px;
-  overflow: hidden;       /* Esconde o que passar para fora das bordas da seção */
-  padding: 80px 8%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 8%;
+  overflow: hidden;
 }
 
 /* 1. Imagem de fundo da ESQUERDA (em cima) */
 #contato::before {
   content: "";
   position: absolute;
-  left: -150px;
-  top: -130px;
-  width: 650px;
-  height: 650px;
-  background-image: url('./assets/horario_fundo.png'); /* Usa a mesma imagem de fundo */
+  left: -250px;
+  top: -230px;
+  width: 900px;
+  height: 900px;
+  background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  filter: brightness(0.3); /* Mesmo filtro escuro do relógio */
+  filter: brightness(0.6);
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
 }
@@ -523,103 +620,313 @@ section {
 #contato::after {
   content: "";
   position: absolute;
-  right: -150px;
-  bottom: -130px;
-  width: 650px;
-  height: 650px;
+  right: -250px;
+  bottom: -230px;
+  width: 900px;
+  height: 900px;
   background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  filter: brightness(0.3); /* Mesmo filtro escuro */
+  filter: brightness(0.6);
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
 }
 
-/* Garante que os elementos internos do contato fiquem na frente das imagens de fundo */
+/* Garante que o conteúdo fique na frente das flores de fundo */
 #contato > * {
   position: relative;
   z-index: 1;
 }
 
-#contato > div {
-  flex: 1;
+/* ==========================================================================
+   CENÁRIO A: Se #contato tiver 3 divs separadas (1: Endereço, 2: Mapa, 3: Form)
+   ========================================================================== */
+#contato:has(> div:nth-child(3)) {
+  display: grid;
+  grid-template-columns: 380px minmax(300px, 540px);
+  justify-content: center;
+  align-content: center;
+  column-gap: 60px;
+  row-gap: 50px;
+}
+
+#contato:has(> div:nth-child(3)) > div:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  color: #FFFFFF;
+  padding: 40px 45px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-#contato > div:first-child span:first-child,
-#contato > div:last-child > div:first-child span:first-child {
+#contato:has(> div:nth-child(3)) > div:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#contato:has(> div:nth-child(3)) > div:nth-child(3) {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* ==========================================================================
+   CENÁRIO B: Se #contato tiver 2 divs e a 1ª div tiver sub-divs
+   ========================================================================== */
+#contato:not(:has(> div:nth-child(3))) > div:first-child:has(> div) {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 60px;
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child > div:first-child {
+  flex: 0 1 380px;
+  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  color: #FFFFFF;
+  padding: 40px 45px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child > div:last-child {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ==========================================================================
+   CENÁRIO C: Se os spans e a <img> do mapa estiverem juntos na 1ª div
+   ========================================================================== */
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  column-gap: 60px;
+  align-items: center;
+  position: relative;
+}
+
+/* Cria o cartão verde escuro exatamente atrás dos textos de "Visite-nos" */
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div))::before {
+  content: "";
+  position: absolute; /* Impede que o fundo empurre os textos para fora */
+  left: 0;
+  top: 0;
+  width: 390px;
+  height: 100%;
+  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  border-radius: 10px;
+  z-index: -1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) > span {
+  grid-column: 1;
+  padding-left: 45px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) > span:first-of-type {
+  padding-top: 35px;
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) > span:last-of-type {
+  padding-bottom: 35px;
+}
+
+#contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) > img {
+  grid-column: 2;
+  grid-row: 1 / 8;
+}
+
+/* ==========================================================================
+   TEXTOS DO "VISITE-NOS" E MAPA
+   ========================================================================== */
+
+#contato > div:first-child span {
   font-family: var(--fonte-serifada);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--cor-principal);
-  margin-bottom: 10px;
+  color: #FFFFFF; /* Garante letras brancas dentro do fundo verde */
+  font-size: 1.35rem;
+  line-height: 2.;
+  margin-bottom: px;
   display: block;
 }
 
-#contato span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--cor-texto-claro);
+/* Título "Visite-nos" */
+#contato > div:first-child span:first-child {
+  font-size: 1.55rem;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
+/* Espaço antes do CEP */
+#contato > div:first-child span:last-of-type {
+  margin-top: 16px;
+}
+
+/* Imagem do Mapa */
 #contato img {
   width: 100%;
-  max-width: 380px;
-  border-radius: 10px;
-  margin: 0 auto;
+  max-width: 700px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  justify-self: end;
 }
 
+/* ==========================================================================
+   PARTE INFERIOR: Cartão do Formulário de Contato
+   ========================================================================== */
+
+#contato > div:last-child {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px solid #004346;
+  border-radius: 12px;
+  padding: 35px 55px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+/* Cabeçalho do Formulário: Título | Subtítulo lado a lado */
+#contato > div:last-child > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+/* "Formulário de contato" + Barra vertical divisória */
+#contato > div:last-child > div:first-child span:first-child {
+  font-family: var(--fonte-serifada);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: #004346;
+  margin-bottom: 0;
+  padding-right: 20px;
+  border-right: 1px solid #004346;
+  white-space: nowrap;
+}
+
+/* "Ficou com alguma dúvida? Converse diretamente conosco!" */
+#contato > div:last-child > div:first-child span:last-child {
+  font-family: var(--fonte-serifada);
+  font-size: 0.95rem;
+  color: #004346;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+/* Estrutura das linhas do Formulário */
 #contato form {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
+/* Cada barra verde escura (Nome, Email, Obs) */
 #contato form div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  background-color: #004346; /* Fundo verde escuro nas barras dos inputs */
+  border-radius: 8px;
+  padding: 8px 18px;
 }
 
+/* Texto "Nome:", "Email:", "Obs:" dentro da barra verde */
 #contato label {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
+  font-family: var(--fonte-serifada);
+  font-weight: 400;
+  font-size: 1rem;
+  color: #FFFFFF;
+  margin-bottom: 0;
+  margin-right: 12px;
+  white-space: nowrap;
 }
 
+/* Campo de digitação (transparente dentro da barra verde) */
 #contato input {
-  padding: 10px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-family: var(--fonte-serifada);
   font-size: 1rem;
+  padding: 2px 0;
   outline: none;
 }
 
-#contato input:focus {
-  border-color: var(--cor-principal);
-}
-
+/* Botão "ENVIAR" centralizado em formato de pílula */
 #contato button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background-color: var(--cor-principal);
-  color: var(--cor-fundo-branco);
-  border: none;
+  margin: 15px auto 0;
+  width: auto;
+  min-width: 145px;
+  padding: 8px 24px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #004346;
+  border: 1px solid #004346;
   border-radius: 50px;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   transition: 0.3s;
 }
 
+#contato button:not(:has(img, svg))::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #004346;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 #contato button:hover {
-  opacity: 0.9;
+  background-color: #004346;
+  color: #FFFFFF;
+}
+
+#contato button:hover::before {
+  border-color: #FFFFFF;
 }
 
 /* ==========================================================================
    8. RODAPÉ (#rodape)
+   ========================================================================== */
+/* ==========================================================================
+   RODAPÉ (#rodape) - Fontes grandes e excelente legibilidade
    ========================================================================== */
 
 #rodape {
@@ -628,50 +935,61 @@ section {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
-  padding: 60px 8%;
+  gap: 50px;
+  padding: 90px 8%;
+  font-family: var(--fonte-serifada);
 }
 
 #rodape > div {
   flex: 1;
-  min-width: 200px;
+  min-width: 220px;
 }
 
+/* Títulos das colunas bem grandes e destacados */
 #rodape h1 {
-  font-size: 1.1rem;
-  color: var(--cor-secundaria);
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-family: var(--fonte-serifada);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
 
 #rodape ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #rodape li {
-  margin-bottom: 12px;
+  margin-bottom: 18px; /* Maior espaçamento entre as linhas */
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #dddddd;
+  gap: 14px;
+  color: #FFFFFF;
+  font-size: 1.35rem;   /* Letra grande e confortável para leitura */
 }
 
+/* Tamanho ideal para os ícones das redes sociais acompanharem o texto maior */
 #rodape img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
+/* Links do rodapé maiores e destacados */
 #rodape a {
-  color: #dddddd;
+  font-family: var(--fonte-serifada);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
+  font-size: 1.35rem;   /* Letra grande nos links */
   transition: 0.3s;
 }
 
 #rodape a:hover {
-  color: var(--cor-fundo-branco);
-  padding-left: 5px;
+  color: #FFFFFF;
+  padding-left: 6px;
 }
-
 
 /* ==========================================================================
    9. RESPONSIVIDADE (Telas de Celular e Tablet)
@@ -731,6 +1049,7 @@ section {
   #inicio img {
     margin-top: -10%;
     margin-bottom: -15%;
+    width: 100vw;
   }
 
   #horario > div:last-child,
@@ -745,12 +1064,58 @@ section {
     text-align: left;
   }
 
-  #rodape {
+#rodape {
     flex-direction: column;
+    align-items: center;    /* Centraliza todas as colunas no meio da tela */
     text-align: center;
+    gap: 45px;              /* Espaço vertical confortável entre uma coluna e outra */
+    padding: 60px 5%;       /* Margens laterais menores para aproveitar melhor a tela do celular */
   }
 
-  #rodape li {
+  #rodape > div {
+    width: 100%;
+    min-width: unset;
+  }
+
+#rodape {
+    /* Transforma o rodapé em uma grade de 2 colunas no celular */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;  /* Centraliza o conteúdo de cada coluna */
+    text-align: center;
+    gap: 40px 20px;         /* Espaçamento vertical e horizontal entre os blocos */
+    padding: 60px 6%;
+  }
+
+  #rodape > div {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Garante que os títulos e links fiquem centralizados */
+  #rodape h1 {
+    margin-bottom: 15px;
+    font-size: 1.3rem; /* Um pouco mais compacto para celular */
+  }
+
+  #rodape li, 
+  #rodape a {
+    font-size: 1.1rem; /* Letras ligeiramente menores e confortáveis para mobile */
     justify-content: center;
+  }
+
+  #rodape img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Se a tela do celular for muito pequenininha (abaixo de 480px, tipo iPhone SE), aí sim empilha em 1 coluna para não apertar */
+@media (max-width: 480px) {
+  #rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
   }
 }
