@@ -1,7 +1,4 @@
 import { useState } from 'react'
-// import heroImg from './assets/hero.png'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
 import inicioImg from './assets/inicio_img.png'
 import relogio from './assets/relogio.png'
 import feedbacks from './assets/feedbacks.png'

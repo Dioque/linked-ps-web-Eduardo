@@ -857,16 +857,17 @@ section {
 
   #inicio {
     flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    padding: 40px 5% 0 5%;
+    padding: 40px 0 0 0;
     height: auto;
     min-height: 100vh;
   }
 
   #inicio > div:first-child {
-    flex: 1;
+    flex: 0 0 auto;
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 5% 30px 5%;
     align-items: center;
   }
 
@@ -897,22 +898,27 @@ section {
   }
 
   #inicio > div:last-child {
+    flex: 0 0 auto;
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
     width: 100%;
-    height: 350px;
-    justify-content: center;
-    margin-top: 20px;
+    height: auto;
+    margin-top: auto;
     overflow: hidden;
   }
 
   #inicio img {
-    width: 100%;
-    height: 100%;
+    width: 145%;
+    max-width: none;
+    height: auto;
     object-fit: cover;
-    object-position: center;
-    margin: 0;
+    margin-left: -45%;
+    margin-top: -18%;
+    margin-bottom: -40%;
   }
 
+  
   #servicos h1 {
     font-size: 3rem;
     margin-bottom: 10px;
