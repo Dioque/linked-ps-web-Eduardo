@@ -31,7 +31,7 @@ Para executar este projeto na sua máquina, precisa de ter o **Node.js** (versã
    `git clone https://github.com/Dioque/linked-ps-web-Eduardo.git`
 
 2. Acesse a pasta do projeto:
-   `cd linked-ps-web-eduardo-goncalves`
+   `cd linked-ps-web-Eduardo`
 
 3. Instale todas as dependências necessárias e inicie:
    `npm install && npm start`
