@@ -1,17 +1,11 @@
-/* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Cores exatas da Foto 1)
-   ========================================================================== */
-
 :root {
-  --cor-principal: #063B3E;     /* Verde-petróleo escuro exato da primeira foto */
-  --cor-secundaria: #8FC0A9;    /* Cor de destaque secundária */
-  --cor-fundo-claro: #F4F7F6;   /* Cor de fundo para intercalar nas outras seções */
-  --cor-fundo-branco: #FFFFFF;  /* Branco puro (essencial para camuflar a onda da foto) */
-  --cor-rodape: #063B3E;        /* Rodapé combinando com o verde-petróleo */
-  --cor-texto-escuro: #111111;  /* Quase preto para os títulos e textos */
-  --cor-texto-claro: #FFFFFF;   /* Cinza escuro para textos secundários */
-  
-  /* Fontes: Com serifa para os textos (igual à foto 1) e sem serifa para botões/menu */
+  --cor-principal: #063B3E;
+  --cor-secundaria: #8FC0A9;
+  --cor-fundo-claro: #F4F7F6;
+  --cor-fundo-branco: #FFFFFF;
+  --cor-rodape: #063B3E;
+  --cor-texto-escuro: #111111;
+  --cor-texto-claro: #FFFFFF;
   --fonte-serifada: 'Georgia', 'Times New Roman', serif;
   --fonte-limpa: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
@@ -30,7 +24,6 @@ body {
   line-height: 1.6;
 }
 
-/* Regra geral de imagens: sem fundo cinza para não manchar imagens PNG */
 img {
   max-width: 100%;
   height: auto;
@@ -38,15 +31,9 @@ img {
   background-color: transparent;
 }
 
-/* Espaçamento padrão para as demais seções do site */
 section {
   padding: 80px 8%;
 }
-
-
-/* ==========================================================================
-   2. CABEÇALHO (#cabecalho)
-   ========================================================================== */
 
 #cabecalho {
   display: flex;
@@ -54,7 +41,7 @@ section {
   align-items: center;
   padding: 20px 6%;
   background-color: var(--cor-fundo-branco);
-  border-bottom: 1px solid #063B3E33; /* Linha fina discreta separando o topo */
+  border-bottom: 1px solid #063B3E33;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -83,48 +70,36 @@ section {
   color: var(--cor-principal);
 }
 
-
-/* ==========================================================================
-   3. SEÇÃO INÍCIO (#inicio) - Idêntica à Foto 1
-   ========================================================================== */
-
 #inicio {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--cor-fundo-branco); /* Fundo branco puro para sumir com os blocos brancos da onda */
-  padding: 0 0 0 7%;            /* Tira o espaço de cima, da direita e de baixo para a foto encostar nas bordas */
-  overflow: hidden;             /* Corta as pontas da onda que passam para fora da foto em cima e embaixo */
+  background-color: var(--cor-fundo-branco);
+  padding: 0 0 0 7%;
+  overflow: hidden;
   min-height: 10vh;
 }
 
-/* Coluna da esquerda (Textos e botões) */
 #inicio > div:first-child {
-  flex: 0 0 40%; /* Ocupa 40% da largura na esquerda */
+  flex: 0 0 38%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 45px 20px 60px 0;
+  justify-content: center;
+  padding: 40px 20px 60px 0;
   box-sizing: border-box;
   z-index: 2;
 }
 
-
-
-
-
-/* Frase do topo: "Consultório de psicologia e psicoterapia." */
 #inicio span {
   display: block;
   font-family: var(--fonte-serifada);
   color: var(--cor-texto-escuro);
   font-size: 2.05rem;
   font-weight: 400;
-  text-transform: none;         /* Mantém letras normais (sem forçar tudo maiúsculo) */
-  margin-bottom: 1%;          /* Dá aquele espaço grande entre a frase do topo e o "Lorem Ipsum." */
+  text-transform: none;
+  margin-bottom: 1%;
 }
 
-/* Título principal: "Lorem Ipsum" */
 #inicio h1 {
   font-family: var(--fonte-serifada);
   font-size: 3.2rem;
@@ -134,56 +109,13 @@ section {
   line-height: 1.15;
 }
 
-/* Parágrafo de texto */
 #inicio p {
   font-family: var(--fonte-serifada);
   color: var(--cor-texto-escuro);
   font-size: 1.2rem;
   line-height: 1.45;
-  max-width: 520px;             /* Faz o texto quebrar em 3 linhas exatamente como na foto 1 */
+  max-width: 520px;
   margin-bottom: 45px;
-}
-
-/* 1. Div da Esquerda (Textos): vai até os 38% da página */
-#inicio > div:first-child {
-  flex: 0 0 38%;                /* Trava o bloco de texto em 38% da largura (mude entre 35% e 40% se quiser ajustar) */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;      /* Mantém os textos alinhados no meio da altura */
-  padding: 40px 20px 60px 0;
-  z-index: 2;
-}
-
-/* Estilo dos botões em formato de pílula */
-#inicio button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;                    /* Espaço entre a bolinha e o texto do botão */
-  padding: 10px 24px;
-  border-radius: 50px;          /* Deixa os botões totalmente arredondados nas pontas */
-  font-family: var(--fonte-limpa);
-  font-size: 1.15rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Desenha o pequeno círculo (bolinha) dentro dos botões automaticamente */
-#inicio button::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid currentColor;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-/* Primeiro botão (AGENDAR) */
-#inicio button:first-child {
-  background-color: var(--cor-principal);
-  color: var(--cor-fundo-branco);
-  border: 1.5px solid var(--cor-principal);
 }
 
 #inicio button {
@@ -201,13 +133,25 @@ section {
   transition: 0.3s;
 }
 
+#inicio button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#inicio button:first-child {
+  background-color: var(--cor-principal);
+  color: var(--cor-fundo-branco);
+  border: 1.5px solid var(--cor-principal);
+}
 
 #inicio button:first-of-type {
   margin-right: 30px;
 }
 
-
-/* Segundo botão (SAIBA MAIS) */
 #inicio button:last-child {
   background-color: transparent;
   color: var(--cor-principal);
@@ -219,41 +163,25 @@ section {
   transform: translateY(-2px);
 }
 
-/* Coluna da direita (Imagem com a onda) */
-#inicio > div:last-child {
-  flex: 1.25;                   /* Dá a proporção exata de largura para a foto na direita */
-  display: flex;
-  justify-content: flex-end;    /* Cola a imagem totalmente na direita */
-  align-items: center;
-}
-
-#inicio img {
-  width: 100%;
-  max-width: none;
-  border-radius: 0;             /* Cantos retos para colar nas bordas da tela */
-  margin-top: -13%;             /* Puxa a imagem para cima para esconder a sobra transparente do PNG */
-  margin-bottom: -37%;          /* Puxa a imagem para baixo para esconder a sobra transparente inferior */
-
-}
 #inicio > div:last-child {
   flex: 1;
   display: flex;
-  overflow: hidden;             /* Mantém a moldura cortando o excesso */
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
 }
+
 #inicio img {
-  width: 115%;                  /* Um pouco maior apenas para cobrir a margem que vamos puxar */
+  width: 115%;
   max-width: none;
   height: 100%;
   object-fit: cover;
-  margin-left: -12%;            /* Puxa levemente para a esquerda para esconder a faixa branca inicial */
-  object-position: 25% center;  /* Move o foco do corte para o lugar certo, mantendo a pessoa visível */
+  object-position: 25% center;
+  margin-top: -13%;
+  margin-bottom: -37%;
+  margin-left: -12%;
   border-radius: 0;
 }
-
-
-/* ==========================================================================
-   4. SEÇÃO SERVIÇOS (#servicos)
-   ========================================================================== */
 
 #servicos {
   background-color: #004346;
@@ -270,7 +198,7 @@ section {
 #servicos h1 {
   font-family: var(--fonte-serifada);
   font-size: 5.2rem;
-  color: #FFFFFF; /* Título em branco puro */
+  color: #FFFFFF;
   margin-bottom: -30px;
 }
 
@@ -278,13 +206,12 @@ section {
   font-family: var(--fonte-serifada);
   font-size: 1.8rem;
   display: block;
-  color: rgba(255, 255, 255, 0.8); /* Subtítulo em tom claro e suave */
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 30px;
   position: relative;
   padding-bottom: 28px;
 }
 
-/* Linha divisoria abaixo do subtítulo (igual na imagem) */
 #servicos span::after {
   content: "";
   position: absolute;
@@ -297,29 +224,20 @@ section {
 }
 
 #servicos p {
-  font-family: var(--fonte-serifada); /* Garante a mesma fonte serifada no texto */
+  font-family: var(--fonte-serifada);
   font-size: 1.8rem;
   max-width: 700px;
   margin: 0 auto;
-  color: #FFFFFF;                    /* Texto do parágrafo em branco */
+  color: #FFFFFF;
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   5. SEÇÃO HORÁRIO (#horario)
-   ========================================================================== */
-/* ==========================================================================
-   SEÇÃO HORÁRIO (#horario) - Idêntica à referência
-   ========================================================================== */
-
 #horario {
-  position: relative; /* Necessário para posicionar as imagens dentro da seção */
-  background-color: rgba(136, 131, 165, 0.164); /* Cor de fundo geral da seção */
+  position: relative;
+  background-color: rgba(136, 131, 165, 0.164);
   text-align: center;
   padding: 80px 8%;
-  overflow: hidden; /* Esconde o que passar para fora das bordas */
-  
-  /* Centraliza tudo exatamente no meio dos 100% da altura da tela */
+  overflow: hidden;
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;
@@ -328,7 +246,6 @@ section {
   align-items: center;
 }
 
-/* 1. Imagem de fundo da ESQUERDA (embaixo) */
 #horario::before {
   content: "";
   position: absolute;
@@ -339,13 +256,12 @@ section {
   background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  filter: brightness(0.6); 
+  filter: brightness(0.6);
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.35; /* Deixa a imagem mais fraca e fosca (vai de 0.1 a 1.0) */
 }
 
-/* 2. Imagem de fundo da DIREITA (em cima) */
 #horario::after {
   content: "";
   position: absolute;
@@ -356,26 +272,24 @@ section {
   background-image: url('./assets/horario_fundo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  filter: brightness(0.6); 
+  filter: brightness(0.6);
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.35; /* Deixa a imagem mais fraca e fosca (vai de 0.1 a 1.0) */
 }
 
-/* Garante que o conteúdo de texto e os cartões fiquem na frente das imagens de fundo */
 #horario > div {
   position: relative;
   z-index: 1;
 }
 
-/* Título e Subtítulo maiores + linha divisória */
 #horario > div:first-child {
   margin-bottom: 40px;
 }
 
 #horario h1 {
   font-family: var(--fonte-serifada);
-  font-size: 7.2rem; /* Título maior igual à foto */
+  font-size: 7.2rem;
   font-weight: 500;
   color: var(--cor-principal);
   margin-bottom: 10px;
@@ -384,13 +298,12 @@ section {
 #horario > div:first-child span {
   display: block;
   font-family: var(--fonte-serifada);
-  color: var(--cor-principal); 
+  color: var(--cor-principal);
   font-size: 1.2rem;
   position: relative;
   padding-bottom: 30px;
 }
 
-/* Linha fina embaixo do subtítulo */
 #horario > div:first-child span::after {
   content: "";
   position: absolute;
@@ -403,24 +316,22 @@ section {
   opacity: 0.6;
 }
 
-/* O Grande Cartão Centralizado (Maior e ocupando bem o meio) */
 #horario > div:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 60px;
-  width: 100%;       /* Garante que o cartão se expanda dentro do Flexbox */
-  max-width: 950px;  /* Largura maior para dar mais presença no centro */
+  width: 100%;
+  max-width: 950px;
   margin: 0 auto;
-  padding: 80px 60px; /* Mais altura e espaço interno */
-  border-radius: 12px;  
-  background-color: rgba(255, 255, 255, 0.25); /* Levemente transparente para mostrar o desenho atrás */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+  padding: 80px 60px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid #111111;
   box-sizing: border-box;
 }
 
-/* Lado esquerdo: Caixa do ícone do relógio */
 #horario > div:last-child > div:first-child {
   flex: 1;
   display: flex;
@@ -429,61 +340,48 @@ section {
 }
 
 #horario img {
-  width: 180px;   /* Relógio maior para acompanhar o novo tamanho do cartão */
+  width: 180px;
   height: 180px;
   object-fit: contain;
   filter: brightness(0.3);
 }
 
-/* Lado direito: A caixinha verde escura com os horários */
 #horario > div:last-child > div:last-child {
   flex: 1.4;
   display: flex;
   flex-direction: column;
   gap: 22px;
-  background-color: var(--cor-principal); 
-  padding: 40px 35px; /* Caixa verde mais espaçosa */
+  background-color: var(--cor-principal);
+  padding: 40px 35px;
   border-radius: 12px;
-  color: var(--cor-fundo-branco);        
+  color: var(--cor-fundo-branco);
 }
 
-/* Cada linha de horário dentro da caixa verde */
 #horario > div:last-child > div:last-child > div {
   display: flex;
   justify-content: space-between;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35); 
-  font-family: var(--fonte-serifada); /* Fonte serifada igual à foto */
-  font-size: 1.25rem;                 /* Letras e números maiores */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  font-family: var(--fonte-serifada);
+  font-size: 1.25rem;
 }
 
-/* Tira a bordinha da última linha */
 #horario > div:last-child > div:last-child > div:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
-/* ==========================================================================
-   6. SEÇÃO FEEDBACKS (#feedbacks)
-   ========================================================================== */
-/* ==========================================================================
-   SEÇÃO FEEDBACKS (#feedbacks) - Idêntico à referência
-   ========================================================================== */
-
-/* ==========================================================================
-   SEÇÃO FEEDBACKS (#feedbacks) - Fiel ao layout do Figma
-   ========================================================================== */
 
 #feedbacks {
-  background-color: var(--cor-principal); /* Fundo verde escuro igual à imagem */
+  background-color: var(--cor-principal);
   min-height: 100vh;
-  box-sizing: border-box; /* Garante que o padding não passe de 100% da tela */
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 80px;
   padding: 80px 10%;
   color: #FFFFFF;
-  font-family: var(--fonte-serifada); /* Aplica a fonte serifada em toda a seção */
+  font-family: var(--fonte-serifada);
 }
 
 #feedbacks > div:first-child {
@@ -497,17 +395,15 @@ section {
   justify-content: flex-end;
 }
 
-/* Imagem com proporção vertical (retrato) idêntica à referência */
 #feedbacks img {
   width: 100%;
   max-width: 480px;
   height: 560px;
-  object-fit: cover; /* Garante que a foto preencha o espaço sem achatar */
+  object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Título "Feedbacks." bem grande e destacado */
 #feedbacks h1 {
   font-family: var(--fonte-serifada);
   font-size: 6.6rem;
@@ -517,7 +413,6 @@ section {
   line-height: 1.1;
 }
 
-/* Subtítulo "Quem conhece, confia." */
 #feedbacks > div:first-child > span {
   display: block;
   font-family: var(--fonte-serifada);
@@ -528,7 +423,6 @@ section {
   padding-bottom: 16px;
 }
 
-/* Linha fina embaixo do subtítulo */
 #feedbacks > div:first-child > span::after {
   content: "";
   position: absolute;
@@ -539,51 +433,39 @@ section {
   background-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Lista com as bolinhas (•) ativadas e alinhadas */
 #feedbacks ul {
-  list-style-type: disc; /* Ativa a bolinha lateral igual na foto */
-  padding-left: 20px;    /* Alinha a bolinha perfeitamente à esquerda do texto */
+  list-style-type: disc;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 35px;             /* Espaço entre cada depoimento */
+  gap: 35px;
   margin: 0;
 }
 
-/* Cada item de feedback limpo, sem bordas ou caixas */
 #feedbacks li {
   background-color: transparent;
-  padding: 0 0 0 8px; /* Pequeno espaço entre a bolinha e o início da frase */
+  padding: 0 0 0 8px;
   border: none;
-  color: #FFFFFF;     /* Cor da bolinha */
+  color: #FFFFFF;
 }
 
-/* Texto do depoimento entre aspas */
 #feedbacks li span:first-child {
   display: block;
   font-family: var(--fonte-serifada);
-  font-style: normal; /* Sem itálico, igual ao print */
+  font-style: normal;
   font-size: 1.37rem;
   color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 18px; /* Espaço entre o texto e o "- Cliente X" */
+  margin-bottom: 18px;
   line-height: 1.45;
 }
 
-/* Nome do cliente ("- Cliente 1, 2026") */
 #feedbacks li span:last-child {
   display: block;
   font-family: var(--fonte-serifada);
-  font-weight: 400; /* Peso normal e suave */
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.1rem;
 }
-
-/* ==========================================================================
-   7. SEÇÃO CONTATO (#contato)
-   ========================================================================== */
-
-/* ==========================================================================
-   SEÇÃO CONTATO (#contato) - Fundo verde corrigido no "Visite-nos" e Inputs
-   ========================================================================== */
 
 #contato {
   position: relative;
@@ -599,7 +481,6 @@ section {
   overflow: hidden;
 }
 
-/* 1. Imagem de fundo da ESQUERDA (em cima) */
 #contato::before {
   content: "";
   position: absolute;
@@ -616,7 +497,6 @@ section {
   pointer-events: none;
 }
 
-/* 2. Imagem de fundo da DIREITA (em baixo) */
 #contato::after {
   content: "";
   position: absolute;
@@ -633,15 +513,11 @@ section {
   pointer-events: none;
 }
 
-/* Garante que o conteúdo fique na frente das flores de fundo */
 #contato > * {
   position: relative;
   z-index: 1;
 }
 
-/* ==========================================================================
-   CENÁRIO A: Se #contato tiver 3 divs separadas (1: Endereço, 2: Mapa, 3: Form)
-   ========================================================================== */
 #contato:has(> div:nth-child(3)) {
   display: grid;
   grid-template-columns: 380px minmax(300px, 540px);
@@ -654,7 +530,7 @@ section {
 #contato:has(> div:nth-child(3)) > div:nth-child(1) {
   grid-column: 1;
   grid-row: 1;
-  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  background-color: #004346;
   color: #FFFFFF;
   padding: 40px 45px;
   border-radius: 10px;
@@ -677,9 +553,6 @@ section {
   grid-row: 2;
 }
 
-/* ==========================================================================
-   CENÁRIO B: Se #contato tiver 2 divs e a 1ª div tiver sub-divs
-   ========================================================================== */
 #contato:not(:has(> div:nth-child(3))) > div:first-child:has(> div) {
   width: 100%;
   max-width: 1000px;
@@ -692,7 +565,7 @@ section {
 
 #contato:not(:has(> div:nth-child(3))) > div:first-child > div:first-child {
   flex: 0 1 380px;
-  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  background-color: #004346;
   color: #FFFFFF;
   padding: 40px 45px;
   border-radius: 10px;
@@ -709,9 +582,6 @@ section {
   align-items: center;
 }
 
-/* ==========================================================================
-   CENÁRIO C: Se os spans e a <img> do mapa estiverem juntos na 1ª div
-   ========================================================================== */
 #contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) {
   width: 100%;
   max-width: 1000px;
@@ -722,15 +592,14 @@ section {
   position: relative;
 }
 
-/* Cria o cartão verde escuro exatamente atrás dos textos de "Visite-nos" */
 #contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div))::before {
   content: "";
-  position: absolute; /* Impede que o fundo empurre os textos para fora */
+  position: absolute;
   left: 0;
   top: 0;
   width: 390px;
   height: 100%;
-  background-color: #004346; /* Fundo verde escuro do Visite-nos */
+  background-color: #004346;
   border-radius: 10px;
   z-index: -1;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -756,32 +625,24 @@ section {
   grid-row: 1 / 8;
 }
 
-/* ==========================================================================
-   TEXTOS DO "VISITE-NOS" E MAPA
-   ========================================================================== */
-
 #contato > div:first-child span {
   font-family: var(--fonte-serifada);
-  color: #FFFFFF; /* Garante letras brancas dentro do fundo verde */
+  color: #FFFFFF;
   font-size: 1.35rem;
-  line-height: 2.;
-  margin-bottom: px;
+  line-height: 2;
   display: block;
 }
 
-/* Título "Visite-nos" */
 #contato > div:first-child span:first-child {
   font-size: 1.55rem;
   font-weight: 400;
   margin-bottom: 20px;
 }
 
-/* Espaço antes do CEP */
 #contato > div:first-child span:last-of-type {
   margin-top: 16px;
 }
 
-/* Imagem do Mapa */
 #contato img {
   width: 100%;
   max-width: 700px;
@@ -793,10 +654,6 @@ section {
   margin: 0;
   justify-self: end;
 }
-
-/* ==========================================================================
-   PARTE INFERIOR: Cartão do Formulário de Contato
-   ========================================================================== */
 
 #contato > div:last-child {
   width: 100%;
@@ -810,7 +667,6 @@ section {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 }
 
-/* Cabeçalho do Formulário: Título | Subtítulo lado a lado */
 #contato > div:last-child > div:first-child {
   display: flex;
   flex-direction: row;
@@ -820,7 +676,6 @@ section {
   margin-bottom: 25px;
 }
 
-/* "Formulário de contato" + Barra vertical divisória */
 #contato > div:last-child > div:first-child span:first-child {
   font-family: var(--fonte-serifada);
   font-size: 1.55rem;
@@ -832,7 +687,6 @@ section {
   white-space: nowrap;
 }
 
-/* "Ficou com alguma dúvida? Converse diretamente conosco!" */
 #contato > div:last-child > div:first-child span:last-child {
   font-family: var(--fonte-serifada);
   font-size: 0.95rem;
@@ -841,7 +695,6 @@ section {
   margin-bottom: 0;
 }
 
-/* Estrutura das linhas do Formulário */
 #contato form {
   margin-top: 10px;
   display: flex;
@@ -849,17 +702,15 @@ section {
   gap: 14px;
 }
 
-/* Cada barra verde escura (Nome, Email, Obs) */
 #contato form div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #004346; /* Fundo verde escuro nas barras dos inputs */
+  background-color: #004346;
   border-radius: 8px;
   padding: 8px 18px;
 }
 
-/* Texto "Nome:", "Email:", "Obs:" dentro da barra verde */
 #contato label {
   font-family: var(--fonte-serifada);
   font-weight: 400;
@@ -870,7 +721,6 @@ section {
   white-space: nowrap;
 }
 
-/* Campo de digitação (transparente dentro da barra verde) */
 #contato input {
   flex: 1;
   background-color: transparent;
@@ -882,7 +732,6 @@ section {
   outline: none;
 }
 
-/* Botão "ENVIAR" centralizado em formato de pílula */
 #contato button {
   margin: 15px auto 0;
   width: auto;
@@ -922,13 +771,6 @@ section {
   border-color: #FFFFFF;
 }
 
-/* ==========================================================================
-   8. RODAPÉ (#rodape)
-   ========================================================================== */
-/* ==========================================================================
-   RODAPÉ (#rodape) - Fontes grandes e excelente legibilidade
-   ========================================================================== */
-
 #rodape {
   background-color: var(--cor-rodape);
   color: var(--cor-fundo-branco);
@@ -945,7 +787,6 @@ section {
   min-width: 220px;
 }
 
-/* Títulos das colunas bem grandes e destacados */
 #rodape h1 {
   font-family: var(--fonte-serifada);
   font-size: 1.6rem;
@@ -962,27 +803,25 @@ section {
 }
 
 #rodape li {
-  margin-bottom: 18px; /* Maior espaçamento entre as linhas */
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 14px;
   color: #FFFFFF;
-  font-size: 1.35rem;   /* Letra grande e confortável para leitura */
+  font-size: 1.35rem;
 }
 
-/* Tamanho ideal para os ícones das redes sociais acompanharem o texto maior */
 #rodape img {
   width: 30px;
   height: 30px;
   object-fit: contain;
 }
 
-/* Links do rodapé maiores e destacados */
 #rodape a {
   font-family: var(--fonte-serifada);
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 1.35rem;   /* Letra grande nos links */
+  font-size: 1.35rem;
   transition: 0.3s;
 }
 
@@ -991,14 +830,11 @@ section {
   padding-left: 6px;
 }
 
-/* ==========================================================================
-   9. RESPONSIVIDADE (Telas de Celular e Tablet)
-   ========================================================================== */
-
 @media (max-width: 850px) {
-  
   section {
-    padding: 50px 5%;
+    padding: 60px 5%;
+    min-height: auto;
+    height: auto;
   }
 
   #cabecalho {
@@ -1016,75 +852,186 @@ section {
 
   #cabecalho-links a {
     margin-left: 0;
+    font-size: 0.95rem;
   }
 
   #inicio {
     flex-direction: column;
     text-align: center;
     padding: 40px 5% 0 5%;
+    height: auto;
+    min-height: 100vh;
   }
 
   #inicio > div:first-child {
-    padding: 0 0 30px 0;
+    flex: 1;
+    width: 100%;
+    padding: 20px 0;
+    align-items: center;
   }
 
   #inicio span {
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
   }
 
   #inicio h1 {
-    font-size: 2.3rem;
+    font-size: 2.8rem;
   }
 
   #inicio p {
+    font-size: 1.1rem;
+    max-width: 100%;
     margin: 0 auto 30px auto;
   }
 
   #inicio > div:first-child > div {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
   }
 
-  /* Ajusta a imagem no celular para não cortar demais */
-  #inicio img {
-    margin-top: -10%;
-    margin-bottom: -15%;
-    width: 100vw;
+  #inicio button {
+    font-size: 1rem;
+    padding: 10px 22px;
   }
 
-  #horario > div:last-child,
-  #feedbacks,
-  #contato {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #feedbacks li,
-  #contato form {
-    text-align: left;
-  }
-
-#rodape {
-    flex-direction: column;
-    align-items: center;    /* Centraliza todas as colunas no meio da tela */
-    text-align: center;
-    gap: 45px;              /* Espaço vertical confortável entre uma coluna e outra */
-    padding: 60px 5%;       /* Margens laterais menores para aproveitar melhor a tela do celular */
-  }
-
-  #rodape > div {
+  #inicio > div:last-child {
+    display: flex;
     width: 100%;
-    min-width: unset;
+    height: 350px;
+    justify-content: center;
+    margin-top: 20px;
+    overflow: hidden;
   }
 
-#rodape {
-    /* Transforma o rodapé em uma grade de 2 colunas no celular */
+  #inicio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+  }
+
+  #servicos h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  #servicos span {
+    font-size: 1.2rem;
+  }
+
+  #servicos p {
+    font-size: 1.2rem;
+  }
+
+  #horario {
+    padding: 60px 5%;
+  }
+
+  #horario h1 {
+    font-size: 3.5rem;
+  }
+
+  #horario > div:last-child {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  #horario img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #horario > div:last-child > div:last-child > div {
+    font-size: 1.1rem;
+  }
+
+  #feedbacks {
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 5%;
+    text-align: center;
+  }
+
+  #feedbacks > div:first-child {
+    max-width: 100%;
+  }
+
+  #feedbacks h1 {
+    font-size: 3.5rem;
+  }
+
+  #feedbacks > div:first-child > span::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #feedbacks img {
+    max-width: 100%;
+    height: 400px;
+  }
+
+  #feedbacks ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  #contato {
+    padding: 60px 5%;
+  }
+
+  #contato:has(> div:nth-child(3)),
+  #contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)),
+  #contato:not(:has(> div:nth-child(3))) > div:first-child:has(> div) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+
+  #contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div))::before {
+    width: 100%;
+    height: 100%;
+  }
+
+  #contato > div:first-child > div:first-child,
+  #contato:not(:has(> div:nth-child(3))) > div:first-child:not(:has(> div)) > span {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  #contato img {
+    max-width: 100%;
+    height: 250px;
+    justify-self: center;
+  }
+
+  #contato > div:last-child {
+    padding: 25px 20px;
+  }
+
+  #contato > div:last-child > div:first-child {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  #contato > div:last-child > div:first-child span:first-child {
+    border-right: none;
+    padding-right: 0;
+    font-size: 1.3rem;
+  }
+
+  #rodape {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-items: center;  /* Centraliza o conteúdo de cada coluna */
+    justify-items: center;
     text-align: center;
-    gap: 40px 20px;         /* Espaçamento vertical e horizontal entre os blocos */
-    padding: 60px 6%;
+    gap: 40px 20px;
+    padding: 50px 5%;
   }
 
   #rodape > div {
@@ -1092,15 +1039,14 @@ section {
     min-width: unset;
   }
 
-  /* Garante que os títulos e links fiquem centralizados */
   #rodape h1 {
-    margin-bottom: 15px;
-    font-size: 1.3rem; /* Um pouco mais compacto para celular */
+    font-size: 1.2rem;
+    margin-bottom: 12px;
   }
 
-  #rodape li, 
+  #rodape li,
   #rodape a {
-    font-size: 1.1rem; /* Letras ligeiramente menores e confortáveis para mobile */
+    font-size: 1.05rem;
     justify-content: center;
   }
 
@@ -1110,8 +1056,16 @@ section {
   }
 }
 
-/* Se a tela do celular for muito pequenininha (abaixo de 480px, tipo iPhone SE), aí sim empilha em 1 coluna para não apertar */
 @media (max-width: 480px) {
+  #inicio h1 {
+    font-size: 2.3rem;
+  }
+
+  #horario h1,
+  #feedbacks h1 {
+    font-size: 2.8rem;
+  }
+
   #rodape {
     display: flex;
     flex-direction: column;

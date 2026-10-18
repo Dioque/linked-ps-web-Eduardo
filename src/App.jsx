@@ -6,6 +6,9 @@ import inicioImg from './assets/inicio_img.png'
 import relogio from './assets/relogio.png'
 import feedbacks from './assets/feedbacks.png'
 import mapa from './assets/mapa.png'
+import ins from './assets/ins.png'
+import fac from './assets/fac.png'
+import link from './assets/link.png'
 import './App.css'
 
 function App() {
@@ -148,16 +151,16 @@ function App() {
 						<h1>EMPRESA:</h1>
 						<ul>
 							<li>
-								<img src="" alt="" />
-								<span>Facebook</span>
+								<img src={fac} alt="" />
+								<span><a href="#rodape">Facebook</a></span>
 							</li>
 							<li>
-								<img src="" alt="" />
-								<span>Instagram</span>
+								<img src={ins} alt="" />
+								<span><a href="#rodape">Instagram</a></span>
 							</li>
 							<li>
-								<img src="" alt="" />
-								<span>LinkedIn</span>
+								<img src={link} alt="" />
+								<span><a href="#rodape">LinkedIn</a></span>
 							</li>
 						</ul>
 					</div>
