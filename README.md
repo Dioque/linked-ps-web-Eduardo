@@ -28,7 +28,7 @@ Para executar este projeto na sua máquina, precisa de ter o **Node.js** (versã
 ### Passo a passo
 
 1. Clone este repositório no seu terminal:
-   `git clone [https://github.com/SEU-USUARIO/linked-ps-web-eduardo-goncalves.git](https://github.com/SEU-USUARIO/linked-ps-web-eduardo-goncalves.git)`
+   `git clone https://github.com/Dioque/linked-ps-web-Eduardo.git`
 
 2. Acesse a pasta do projeto:
    `cd linked-ps-web-eduardo-goncalves`
